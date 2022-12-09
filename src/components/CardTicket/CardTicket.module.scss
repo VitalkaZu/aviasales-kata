@@ -1,0 +1,9 @@
+.card-ticket {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-ticket__header {
+  display: flex;
+  justify-content: space-between;
+}
