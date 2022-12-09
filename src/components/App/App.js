@@ -1,10 +1,16 @@
 import React from 'react'
+
+import CardTicket from '../CardTicket'
 // import PropTypes from 'prop-types'
 
-App.propTypes = {}
+// App.propTypes = {}
 
 function App() {
-  return <div>Hello</div>
+  return (
+    <div className="app">
+      <CardTicket />
+    </div>
+  )
 }
 
 export default App

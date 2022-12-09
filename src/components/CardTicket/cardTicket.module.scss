@@ -1,0 +1,13 @@
+.cardTicket {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: antiquewhite;
+  box-shadow: 0 0 10px 5px black;
+}
+
+.cardTicket__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: bisque;
+}
