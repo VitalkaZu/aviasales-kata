@@ -6,7 +6,6 @@ import FieldWithHead from '../FieldWithHead'
 // CardTicket.propTypes = {}
 
 function CardTicket() {
-  console.log(styles)
   return (
     <div className={styles.cardTicket}>
       <div className={styles.cardTicket__header}>

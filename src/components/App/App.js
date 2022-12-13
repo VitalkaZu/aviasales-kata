@@ -7,6 +7,7 @@ import { AviaSalesService } from '../../services/serviceAviasales/serviceAviasal
 import ListTicket from '../ListTicket'
 import SortTabs from '../SortTabs/SortTabs'
 import Filter from '../Filter/Filter'
+// import tickets from '../../store/reducer'
 // import PropTypes from 'prop-types'
 
 // App.propTypes = {}
@@ -21,8 +22,7 @@ function App() {
   }, [])
 
   // const dispatch = useDispatch()
-  const tickets = useSelector((state) => state.tickets.items)
-  console.log(tickets)
+  useSelector((state) => console.log(state.reducer))
   return (
     <div className={styles.app}>
       <div className={styles.app__wrapper}>

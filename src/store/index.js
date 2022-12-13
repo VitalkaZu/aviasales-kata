@@ -1,5 +1,8 @@
 import { createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import tickets from './reducer'
+// import { reducer } from './reducer'
+import rootReducer from './reducer'
 
-export const store = createStore(tickets, composeWithDevTools)
+// const rootReducer = combineReducers({ reducer })
+const store = createStore(rootReducer)
+
+export default store
