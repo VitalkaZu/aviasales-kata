@@ -17,7 +17,7 @@
     "object-curly-newline": ["error", { "consistent": true }],
     "react/jsx-one-expression-per-line": "off",
     "comma-dangle": 0,
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "linebreak-style": [0, "unix"],
     "operator-linebreak": [
@@ -27,7 +27,7 @@
     ],
     "no-underscore-dangle": 0,
     "default-param-last": 0,
-    "import/prefer-default-export": "off"
-    //    "react/prop-types": 0
+    "import/prefer-default-export": "off",
+        "react/prop-types": 0
   }
 }

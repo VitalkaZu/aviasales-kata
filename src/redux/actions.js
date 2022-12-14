@@ -1,11 +1,12 @@
-// export const ADD_TICKETS = 'REQUEST_POSTS'
-export const REQUEST_TICKETS = 'REQUEST_POSTS'
-export const RECEIVE_TICKETS = 'RECEIVE_POSTS'
-export const GET_SEARCH_ID = 'GET_SEARCH_ID'
+import { REPLACE_TEXT } from './types'
 
-export const addTickets = (tickets) => ({
-  type: RECEIVE_TICKETS,
-  payload: tickets,
+// export const addTickets = (tickets) => ({
+//   type: RECEIVE_TICKETS,
+//   payload: tickets,
+// })
+
+export const replaceText = () => ({
+  type: REPLACE_TEXT,
 })
 
 // const fetchPosts = (subreddit) => (dispatch) => {

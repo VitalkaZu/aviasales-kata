@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import styles from './app.module.scss'
 import './global.scss'
 import { AviaSalesService } from '../../services/serviceAviasales/serviceAviasales'
@@ -7,7 +7,7 @@ import { AviaSalesService } from '../../services/serviceAviasales/serviceAviasal
 import ListTicket from '../ListTicket'
 import SortTabs from '../SortTabs/SortTabs'
 import Filter from '../Filter/Filter'
-// import tickets from '../../store/reducer'
+// import tickets from '../../redux/reducer'
 // import PropTypes from 'prop-types'
 
 // App.propTypes = {}
@@ -21,8 +21,6 @@ function App() {
     })
   }, [])
 
-  // const dispatch = useDispatch()
-  useSelector((state) => console.log(state.reducer))
   return (
     <div className={styles.app}>
       <div className={styles.app__wrapper}>

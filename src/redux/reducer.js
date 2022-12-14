@@ -1,5 +1,6 @@
 // import { REQUEST_TICKETS, RECEIVE_TICKETS, GET_SEARCH_ID } from './actions'
-import { combineReducers } from 'redux'
+// import { combineReducers } from 'redux'
+import { REPLACE_TEXT } from './types'
 
 const defaultState = {
   items: [
@@ -50,8 +51,18 @@ export const reducer = (state = defaultState, action) => {
   }
 }
 
-const filter = (state = 'testtext', action) => {
+const initialTabs = {
+  text: 'test text',
+}
+
+export const tabs = (state = initialTabs, action) => {
+  console.log(action.type)
   switch (action.type) {
+    case REPLACE_TEXT:
+      return {
+        ...state,
+        text: `${state.text} new`,
+      }
     default:
       return state
   }
@@ -68,9 +79,5 @@ const filter = (state = 'testtext', action) => {
 
 // export default reducer
 
-const rootReducer = combineReducers({
-  reducer,
-  filter,
-})
-
-export default rootReducer
+//
+// export default rootReducer

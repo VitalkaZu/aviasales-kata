@@ -1,0 +1,6 @@
+export const REPLACE_TEXT = 'REPLACE_TEXT'
+// export const ADD_TICKETS = 'REQUEST_POSTS'
+export const REQUEST_TICKETS = 'REQUEST_POSTS'
+export const RECEIVE_TICKETS = 'RECEIVE_POSTS'
+export const GET_SEARCH_ID = 'GET_SEARCH_ID'
+export const SELECT_FILTER = 'SELECT_FILTER'
