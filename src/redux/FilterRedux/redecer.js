@@ -2,10 +2,10 @@ import { SELECT_FILTER } from '../types'
 
 const initialState = {
   all: { label: 'Все', checked: true },
-  without: { label: 'Без пересадок', checked: true },
-  one: { label: '1 пересадка', checked: true },
-  two: { label: '2 пересадка', checked: true },
-  three: { label: '3 пересадка', checked: true },
+  without: { label: 'Без пересадок', countStops: 0, checked: true },
+  one: { label: '1 пересадка', countStops: 1, checked: true },
+  two: { label: '2 пересадки', countStops: 2, checked: true },
+  three: { label: '3 пересадки', countStops: 3, checked: true },
 }
 
 export const filterReducer = (state = initialState, action) => {

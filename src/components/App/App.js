@@ -23,7 +23,7 @@ function App() {
     //     console.log(arrTickets)
     //   })
     // })
-    dispatch(loadTickets)
+    dispatch(loadTickets())
   }, [])
 
   return (

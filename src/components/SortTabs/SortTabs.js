@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { replaceText } from '../../redux/actions'
+// import { connect } from 'react-redux'
+// import { replaceText } from '../../redux/actions'
 import styles from './SortTabs.module.scss'
 // import PropTypes from 'prop-types'
 //
@@ -8,13 +8,13 @@ import styles from './SortTabs.module.scss'
 //
 // }
 
-function SortTabs({ tab, onSelectTab }) {
+function SortTabs() {
   return (
     <>
-      <span>{tab}</span>
-      <button type="button" onClick={onSelectTab}>
-        BUTTON
-      </button>
+      {/* <span>{tab}</span> */}
+      {/* <button type="button" onClick={onSelectTab}> */}
+      {/*   BUTTON */}
+      {/* </button> */}
       <ul className={styles.sortTabs}>
         <li
           className={`${styles.sortTabs__item} ${styles.sortTabs__item_left}`}
@@ -36,22 +36,24 @@ function SortTabs({ tab, onSelectTab }) {
   )
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onSelectTab: (e) => {
-      e.preventDefault()
-      console.log('click')
-      // const action = { type: 'REPLACE_TEXT' }
-      dispatch(replaceText())
-    },
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onSelectTab: (e) => {
+//       e.preventDefault()
+//       console.log('click')
+//       // const action = { type: 'REPLACE_TEXT' }
+//       dispatch(replaceText())
+//     },
+//   }
+// }
+//
+// function mapStateToProps(state) {
+//   console.log('mapStateToProps > ', state)
+//   return {
+//     tab: state.tabs.text,
+//   }
+// }
 
-function mapStateToProps(state) {
-  console.log('mapStateToProps > ', state)
-  return {
-    tab: state.tabs.text,
-  }
-}
+export default SortTabs
 
-export default connect(mapStateToProps, mapDispatchToProps)(SortTabs)
+// export default connect(mapStateToProps, mapDispatchToProps)(SortTabs)
