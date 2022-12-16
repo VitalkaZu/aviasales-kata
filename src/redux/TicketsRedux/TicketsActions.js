@@ -1,4 +1,4 @@
-import { LOAD_TICKETS, LOADER_DISPLAY_OFF, LOADER_DISPLAY_ON, ERROR_ON } from '../types'
+import { LOAD_TICKETS, LOADER_DISPLAY_OFF, LOADER_DISPLAY_ON, ERROR_ON, SHOW_MORE } from '../types'
 import { AviaSalesService } from '../../services/serviceAviasales/serviceAviasales'
 
 function loaderDisplayOn() {
@@ -12,6 +12,10 @@ function loaderDisplayOff() {
     type: LOADER_DISPLAY_OFF,
   }
 }
+
+export const showMore = () => ({
+  type: SHOW_MORE,
+})
 
 // function getSearchId() {
 //   const res = AviaSalesService.getSearchId()

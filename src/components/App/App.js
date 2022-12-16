@@ -9,6 +9,7 @@ import './global.scss'
 import ListTicket from '../ListTicket'
 import SortTabs from '../SortTabs/SortTabs'
 import Filter from '../Filter/Filter'
+import ShowMore from '../ShowMore'
 // import tickets from '../../redux/reducer'
 // import PropTypes from 'prop-types'
 
@@ -35,6 +36,7 @@ function App() {
         <main className={styles.app__main}>
           <SortTabs />
           <ListTicket />
+          <ShowMore />
         </main>
       </div>
     </div>
