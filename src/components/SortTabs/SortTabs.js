@@ -1,6 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Tab from '../Tab'
+import { changeTab } from '../../redux/TabsRedux/TabsActions'
 // import { connect } from 'react-redux'
 // import { replaceText } from '../../redux/actions'
 // import { useSelector } from 'react-redux'
@@ -12,9 +13,14 @@ import styles from './SortTabs.module.scss'
 // }
 
 function SortTabs() {
+  const dispatch = useDispatch()
   const { items, selectedKey } = useSelector((state) => state.TabsReducer)
   const arrTabs = Object.entries(items)
   console.log(arrTabs, selectedKey)
+
+  const handleClick = (key) => {
+    dispatch(changeTab(key))
+  }
   return (
     <>
       {/* <span>{tab}</span> */}
@@ -23,7 +29,7 @@ function SortTabs() {
       {/* </button> */}
       <ul className={styles.sortTabs}>
         {arrTabs.map((item) => (
-          <Tab label={item[1].label} selected={selectedKey === item[0]} />
+          <Tab label={item[1].label} selected={selectedKey === item[0]} onClick={() => handleClick(item[0])} />
         ))}
         {/* <Tab selected label="Дешевый" /> */}
         {/* <li> */}

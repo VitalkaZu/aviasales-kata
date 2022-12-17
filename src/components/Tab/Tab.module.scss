@@ -16,10 +16,9 @@
   border-style: solid;
   border-color:#DFE5EC;
 
-  &:hover {
-    background: #2196F3;
-    color:#FFFFFF;
-  }
+  //&:hover {
+  //  background: rgba(33, 150, 243, 0.53);
+  //}
 
   &:first-child {
     border-radius: 5px 0 0 5px;

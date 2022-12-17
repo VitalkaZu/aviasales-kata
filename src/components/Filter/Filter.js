@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectFilter } from '../../redux/FilterRedux/actions'
+import { selectFilter } from '../../redux/FilterRedux/FilterActions'
 import styles from './Filter.module.scss'
 // import PropTypes from 'prop-types'
 //
@@ -10,11 +10,11 @@ import styles from './Filter.module.scss'
 
 function Filter() {
   const dispatch = useDispatch()
-  // const selectedFilter = useSelector((state) => state.filterReducer.selected)
-  const objFilters = useSelector((state) => state.filterReducer)
+  // const selectedFilter = useSelector((state) => state.FilterReducer.selected)
+  const objFilters = useSelector((state) => state.FilterReducer)
 
   const handleChange = (e) => {
-    dispatch(selectFilter(e.target.id))
+    dispatch(selectFilter(e.target.id, objFilters))
   }
 
   return (
@@ -38,66 +38,6 @@ function Filter() {
           </li>
         ))}
       </ul>
-
-      {/* <ul> */}
-      {/*   <li className={styles.filter__item}> */}
-      {/*     <label htmlFor="all" className={styles.filter__label}> */}
-      {/*       <input */}
-      {/*         id="all" */}
-      {/*         type="checkbox" */}
-      {/*         placeholder="Все" */}
-      {/*         className={styles.filter__input} */}
-      {/*       /> */}
-      {/*       <span className={styles.filter__checkbox} /> */}
-      {/*       Все */}
-      {/*     </label> */}
-      {/*   </li> */}
-      {/*   <li className={styles.filter__item}> */}
-      {/*     <label htmlFor="without" className={styles.filter__label}> */}
-      {/*       <input */}
-      {/*         id="without" */}
-      {/*         type="checkbox" */}
-      {/*         placeholder="Без пересадок" */}
-      {/*         className={styles.filter__input} */}
-      {/*       /> */}
-      {/*       <span className={styles.filter__checkbox} /> */}
-      {/*       Без пересадок */}
-      {/*     </label> */}
-      {/*   </li> */}
-      {/*   <li className={styles.filter__item}> */}
-      {/*     <label htmlFor="1" className={styles.filter__label}> */}
-      {/*       <input */}
-      {/*         id="1" */}
-      {/*         type="checkbox" */}
-      {/*         placeholder="1 пересадка" */}
-      {/*         className={styles.filter__input} */}
-      {/*       /> */}
-      {/*       <span className={styles.filter__checkbox} />1 пересадка */}
-      {/*     </label> */}
-      {/*   </li> */}
-      {/*   <li className={styles.filter__item}> */}
-      {/*     <label htmlFor="2" className={styles.filter__label}> */}
-      {/*       <input */}
-      {/*         id="2" */}
-      {/*         type="checkbox" */}
-      {/*         placeholder="2 пересадки" */}
-      {/*         className={styles.filter__input} */}
-      {/*       /> */}
-      {/*       <span className={styles.filter__checkbox} />2 пересадки */}
-      {/*     </label> */}
-      {/*   </li> */}
-      {/*   <li className={styles.filter__item}> */}
-      {/*     <label htmlFor="3" className={styles.filter__label}> */}
-      {/*       <input */}
-      {/*         id="3" */}
-      {/*         type="checkbox" */}
-      {/*         placeholder="3 пересадки" */}
-      {/*         className={styles.filter__input} */}
-      {/*       /> */}
-      {/*       <span className={styles.filter__checkbox} />3 пересадки */}
-      {/*     </label> */}
-      {/*   </li> */}
-      {/* </ul> */}
     </div>
   )
 }

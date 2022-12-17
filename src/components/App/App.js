@@ -19,6 +19,9 @@ import Spinner from '../UI/Spinner'
 function App() {
   const dispatch = useDispatch()
   const isLoading = useSelector((state) => state.TicketsReducer.isLoading)
+  // const countSelectedFilters = useSelector(
+  //   (state) => Object.values(state.FilterReducer).filter((obj) => obj.checked).length
+  // )
 
   useEffect(() => {
     // AviaSalesService.getSearchId().then((id) => {
@@ -38,6 +41,7 @@ function App() {
         <main className={styles.app__main}>
           <SortTabs />
           <Spinner isLoading={isLoading} />
+          {/* {countSelectedFilters ? null : <span>Не выбраны фильтры</span>} */}
           <ListTicket />
           <ShowMore />
         </main>

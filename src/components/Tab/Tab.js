@@ -5,12 +5,13 @@ import styles from './Tab.module.scss'
 // TabModuleScss.propTypes = {
 // }
 
-function Tab({ label, selected }) {
+function Tab({ label, selected, onClick }) {
   return (
     <li className={`${styles.item} ${selected ? styles.sel : null}`}>
       <button
         type="button"
         className={styles.button}
+        onClick={onClick}
       >
         {label}
       </button>

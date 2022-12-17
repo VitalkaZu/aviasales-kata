@@ -6,7 +6,7 @@ const initialState = {
     fast: { label: 'Самый быстрый', selected: false },
     optimal: { label: 'Оптимальный', selected: false },
   },
-  selectedKey: 'optimal',
+  selectedKey: 'lowCash',
 }
 
 export const TabsReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ export const TabsReducer = (state = initialState, action) => {
     case CHANGE_TAB:
       return {
         ...state,
-        selectedKey: action.selectedKey,
+        selectedKey: action.key,
       }
     default:
       return state

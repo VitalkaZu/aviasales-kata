@@ -4,12 +4,12 @@ import { add, format } from 'date-fns'
 
 import styles from './cardTicket.module.scss'
 import FieldWithHead from '../FieldWithHead'
-// import { filterReducer } from '../../redux/FilterRedux/redecer'
+// import { FilterReducer } from '../../redux/FilterRedux/redecer'
 // import './cardTicket.module.scss'
 // CardTicket.propTypes = {}
 
 function CardTicket({ ticket }) {
-  const labels = useSelector((state) => Object.values(state.filterReducer))
+  const labels = useSelector((state) => Object.values(state.FilterReducer))
   console.log('to arr   >>>>  ', labels)
   const { price, carrier, segments } = ticket
   const [to, back] = segments
