@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { reducer, tabs } from './reducer'
 import { filterReducer } from './FilterRedux/redecer'
 import { TicketsReducer } from './TicketsRedux/TickersReducer'
+import { TabsReducer } from './TabsRedux/TabsReducer'
 // import { reducer } from './reducer'
 // import rootReducer, { reducer } from './reducer'
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   tabs,
   filterReducer,
   TicketsReducer,
+  TabsReducer
 })
 
 // const store = createStore(

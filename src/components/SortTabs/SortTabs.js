@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import Tab from '../Tab'
 // import { connect } from 'react-redux'
 // import { replaceText } from '../../redux/actions'
+// import { useSelector } from 'react-redux'
 import styles from './SortTabs.module.scss'
 // import PropTypes from 'prop-types'
 //
@@ -9,6 +12,9 @@ import styles from './SortTabs.module.scss'
 // }
 
 function SortTabs() {
+  const { items, selectedKey } = useSelector((state) => state.TabsReducer)
+  const arrTabs = Object.entries(items)
+  console.log(arrTabs, selectedKey)
   return (
     <>
       {/* <span>{tab}</span> */}
@@ -16,21 +22,25 @@ function SortTabs() {
       {/*   BUTTON */}
       {/* </button> */}
       <ul className={styles.sortTabs}>
-        <li
-          className={`${styles.sortTabs__item} ${styles.sortTabs__item_left}`}
-        >
-          Самый дешевый
-        </li>
-        <li
-          className={`${styles.sortTabs__item} ${styles.sortTabs__item_center}`}
-        >
-          Самый быстрый
-        </li>
-        <li
-          className={`${styles.sortTabs__item} ${styles.sortTabs__item_right}`}
-        >
-          Оптимальный
-        </li>
+        {arrTabs.map((item) => (
+          <Tab label={item[1].label} selected={selectedKey === item[0]} />
+        ))}
+        {/* <Tab selected label="Дешевый" /> */}
+        {/* <li> */}
+        {/*   <button type="button" className={`${styles.sortTabs__item} ${styles.sortTabs__item_left}`}> */}
+        {/*     Самый дешевый */}
+        {/*   </button> */}
+        {/* </li> */}
+        {/* <li> */}
+        {/*   <button type="button" className={`${styles.sortTabs__item} ${styles.sortTabs__item_center}`}> */}
+        {/*     Самый быстрый */}
+        {/*   </button> */}
+        {/* </li> */}
+        {/* <li> */}
+        {/*   <button type="button" className={`${styles.sortTabs__item} ${styles.sortTabs__item_right}`}> */}
+        {/*     Оптимальный */}
+        {/*   </button> */}
+        {/* </li> */}
       </ul>
     </>
   )

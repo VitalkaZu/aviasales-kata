@@ -2,7 +2,7 @@ import { LOAD_TICKETS, LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF, ERROR_ON, SHOW_MOR
 
 const initialState = {
   tickets: [],
-  isLoading: false,
+  isLoading: true,
   isError: false,
   isStop: false,
   countToView: 5,

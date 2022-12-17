@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loadTickets } from '../../redux/TicketsRedux/TicketsActions'
 // import { useSelector } from 'react-redux'
 import styles from './app.module.scss'
@@ -10,6 +10,7 @@ import ListTicket from '../ListTicket'
 import SortTabs from '../SortTabs/SortTabs'
 import Filter from '../Filter/Filter'
 import ShowMore from '../ShowMore'
+import Spinner from '../UI/Spinner'
 // import tickets from '../../redux/reducer'
 // import PropTypes from 'prop-types'
 
@@ -17,6 +18,7 @@ import ShowMore from '../ShowMore'
 
 function App() {
   const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state.TicketsReducer.isLoading)
 
   useEffect(() => {
     // AviaSalesService.getSearchId().then((id) => {
@@ -35,6 +37,7 @@ function App() {
         </aside>
         <main className={styles.app__main}>
           <SortTabs />
+          <Spinner isLoading={isLoading} />
           <ListTicket />
           <ShowMore />
         </main>
