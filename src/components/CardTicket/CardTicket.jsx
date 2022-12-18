@@ -10,7 +10,7 @@ import FieldWithHead from '../FieldWithHead'
 
 function CardTicket({ ticket }) {
   const labels = useSelector((state) => Object.values(state.FilterReducer))
-  console.log('to arr   >>>>  ', labels)
+  // console.log('to arr   >>>>  ', labels)
   const { price, carrier, segments } = ticket
   const [to, back] = segments
   // console.log(to, back)

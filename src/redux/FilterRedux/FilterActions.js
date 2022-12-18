@@ -7,7 +7,11 @@ export const selectFilter = (key, objFilters) => {
   if (key === 'all' && !objFilters[key].checked) {
     return { type: SELECT_ALL_ON }
   }
-  if (key !== 'all' && Object.values(objFilters).filter((obj) => obj.checked).length === 3) {
+  if (
+    key !== 'all' &&
+    !objFilters[key].checked &&
+    Object.values(objFilters).filter((obj) => obj.checked).length === 3
+  ) {
     return { type: SELECT_ALL_ON }
   }
 

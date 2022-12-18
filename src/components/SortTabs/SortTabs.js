@@ -16,7 +16,7 @@ function SortTabs() {
   const dispatch = useDispatch()
   const { items, selectedKey } = useSelector((state) => state.TabsReducer)
   const arrTabs = Object.entries(items)
-  console.log(arrTabs, selectedKey)
+  // console.log(arrTabs, selectedKey)
 
   const handleClick = (key) => {
     dispatch(changeTab(key))
@@ -29,7 +29,12 @@ function SortTabs() {
       {/* </button> */}
       <ul className={styles.sortTabs}>
         {arrTabs.map((item) => (
-          <Tab label={item[1].label} selected={selectedKey === item[0]} onClick={() => handleClick(item[0])} />
+          <Tab
+            key={item[0]}
+            label={item[1].label}
+            selected={selectedKey === item[0]}
+            onClick={() => handleClick(item[0])}
+          />
         ))}
         {/* <Tab selected label="Дешевый" /> */}
         {/* <li> */}

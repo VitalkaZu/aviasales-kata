@@ -1,4 +1,4 @@
-import { LOAD_TICKETS, LOADER_DISPLAY_OFF, LOADER_DISPLAY_ON, ERROR_ON, SHOW_MORE } from '../types'
+import { GET_SEARCH_ID, LOAD_TICKETS, LOADER_DISPLAY_OFF, LOADER_DISPLAY_ON, ERROR_ON, SHOW_MORE } from '../types'
 import { AviaSalesService } from '../../services/serviceAviasales/serviceAviasales'
 
 function loaderDisplayOn() {
@@ -17,71 +17,53 @@ export const showMore = () => ({
   type: SHOW_MORE,
 })
 
-// function getSearchId() {
-//   const res = AviaSalesService.getSearchId()
-//     .then()
-//     .catch((e) => {
-//       console.log(e)
-//     })
-//   return res
-// }
-
-function errorOn() {
+function errorOn(err) {
   return {
     type: ERROR_ON,
+    err,
   }
 }
 
-// async function getTickets(id) {
-//   AviaSalesService.getTickets(id).then(({ tickets, stop }) => {
-//     console.log(tickets)
-//     return { type: LOAD_TICKETS, tickets, stop }
-//   })
-// }
+export function getSearchId() {
+  return async (dispatch) => {
+    try {
+      const searchId = await AviaSalesService.getSearchId().then(async (id) => id)
+      if (searchId) {
+        dispatch({
+          type: GET_SEARCH_ID,
+          searchId,
+        })
+      }
+    } catch (err) {
+      dispatch(errorOn(err))
+    }
+  }
+}
 
-// export function loadTickets() {
-//   return async (dispatch) => {
-//     await dispatch(loaderDisplayOn())
-//     const id = await AviaSalesService.getSearchId()
-//       .then()
-//       .catch((e) => {
-//         console.log(e)
-//       })
-//     if (typeof id === 'string') {
-//       await dispatch(getTickets(id))
-//     }
-//     await dispatch(loaderDisplayOff())
-//   }
-// }
-
-export function loadTickets() {
+export function loadTickets(searchId) {
   return async (dispatch) => {
     try {
       let resArr = []
       dispatch(loaderDisplayOn())
-      // const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10')
-      // const resArr = await response.json()
-      const resId = await AviaSalesService.getSearchId().then(async (id) => id)
-      if (resId) {
-        resArr = await AviaSalesService.getTickets(resId)
+
+      let stop = false
+      do {
+        // eslint-disable-next-line no-await-in-loop
+        resArr = await AviaSalesService.getTickets(searchId)
           .then((res) => res)
-          .catch((e) => {
-            console.log(e)
+          .catch()
+        if (resArr) {
+          stop = resArr.stop
+          dispatch({
+            type: LOAD_TICKETS,
+            data: resArr,
           })
-      }
-      // const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10')
-      // const jsonData = await response.json()
-      if (resArr) {
-        dispatch({
-          type: LOAD_TICKETS,
-          data: resArr,
-        })
-        dispatch(loaderDisplayOff())
-      }
-      // setTimeout(() => {
-      // }, 1000)
+        }
+      } while (!stop)
+      dispatch(loaderDisplayOff())
     } catch (err) {
-      dispatch(errorOn())
+      console.log(err)
+      dispatch(errorOn(err))
       dispatch(loaderDisplayOff())
     }
   }

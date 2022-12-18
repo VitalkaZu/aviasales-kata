@@ -1,7 +1,8 @@
-import { LOAD_TICKETS, LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF, ERROR_ON, SHOW_MORE } from '../types'
+import { LOAD_TICKETS, GET_SEARCH_ID, LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF, ERROR_ON, SHOW_MORE } from '../types'
 
 const initialState = {
   tickets: [],
+  searchId: null,
   isLoading: true,
   isError: false,
   isStop: false,
@@ -13,6 +14,8 @@ export const TicketsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_TICKETS:
       return { ...state, tickets: [...state.tickets, ...action.data.tickets], isStop: action.data.stop }
+    case GET_SEARCH_ID:
+      return { ...state, searchId: action.searchId }
     case SHOW_MORE:
       return { ...state, countToView: state.countToView + 5 }
     case LOADER_DISPLAY_ON:
@@ -20,7 +23,7 @@ export const TicketsReducer = (state = initialState, action) => {
     case LOADER_DISPLAY_OFF:
       return { ...state, isLoading: false }
     case ERROR_ON:
-      return { ...state, isError: true }
+      return { ...state, isError: action.err.message }
     default:
       return state
   }

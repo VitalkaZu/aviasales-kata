@@ -22,14 +22,14 @@ function ListTicket() {
     }, [])
   })
 
-  console.log('filters >>>> ', filters)
+  // console.log('filters >>>> ', filters)
 
   // eslint-disable-next-line arrow-body-style
   const filtArr = tickets.filter((el) => {
     return filters.includes(Math.max(el.segments[0].stops.length, el.segments[1].stops.length))
   })
 
-  console.log('filtered >>>> ', filtArr)
+  // console.log('filtered >>>> ', filtArr)
 
   // const sortArr = sortBy(filtArr, 'price')
   const sortArr = sortBy(filtArr, [
@@ -38,10 +38,10 @@ function ListTicket() {
     },
   ])
 
-  console.log('sorted >>>>> ', sortArr)
+  // console.log('sorted >>>>> ', sortArr)
 
   const arrToView = sortArr.slice(0, countToView)
-  console.log(arrToView)
+  // console.log(arrToView)
   return (
     <ul className={styles.listTicket}>
       {arrToView.map((ticket, index) => (

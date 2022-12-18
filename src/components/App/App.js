@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadTickets } from '../../redux/TicketsRedux/TicketsActions'
+import { loadTickets, getSearchId } from '../../redux/TicketsRedux/TicketsActions'
 // import { useSelector } from 'react-redux'
 import styles from './app.module.scss'
 import './global.scss'
@@ -11,6 +11,7 @@ import SortTabs from '../SortTabs/SortTabs'
 import Filter from '../Filter/Filter'
 import ShowMore from '../ShowMore'
 import Spinner from '../UI/Spinner'
+import Logo from '../UI/Logo/Logo'
 // import tickets from '../../redux/reducer'
 // import PropTypes from 'prop-types'
 
@@ -18,7 +19,7 @@ import Spinner from '../UI/Spinner'
 
 function App() {
   const dispatch = useDispatch()
-  const isLoading = useSelector((state) => state.TicketsReducer.isLoading)
+  const { searchId, isLoading, isError } = useSelector((state) => state.TicketsReducer)
   // const countSelectedFilters = useSelector(
   //   (state) => Object.values(state.FilterReducer).filter((obj) => obj.checked).length
   // )
@@ -29,16 +30,25 @@ function App() {
     //     console.log(arrTickets)
     //   })
     // })
-    dispatch(loadTickets())
+    // dispatch(loadTickets())
+    dispatch(getSearchId())
   }, [])
+
+  useEffect(() => {
+    if (typeof searchId === 'string') {
+      dispatch(loadTickets(searchId))
+    }
+  }, [searchId])
 
   return (
     <div className={styles.app}>
       <div className={styles.app__wrapper}>
+        <Logo />
         <aside className={styles.app__left}>
           <Filter />
         </aside>
         <main className={styles.app__main}>
+          {isError ? <span>Что то пошло не так. {isError}</span> : null}
           <SortTabs />
           <Spinner isLoading={isLoading} />
           {/* {countSelectedFilters ? null : <span>Не выбраны фильтры</span>} */}
