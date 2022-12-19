@@ -62,7 +62,6 @@ export function loadTickets(searchId) {
       } while (!stop)
       dispatch(loaderDisplayOff())
     } catch (err) {
-      console.log(err)
       dispatch(errorOn(err))
       dispatch(loaderDisplayOff())
     }

@@ -1,5 +1,3 @@
-export const REPLACE_TEXT = 'REPLACE_TEXT'
-
 export const LOAD_TICKETS = 'LOAD_TICKETS'
 export const SHOW_MORE = 'SHOW_MORE'
 export const LOADER_DISPLAY_ON = 'LOADER_DISPLAY_ON'

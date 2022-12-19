@@ -11,7 +11,6 @@ const initialState = {
 export const FilterReducer = (state = initialState, action) => {
   switch (action.type) {
     case SELECT_FILTER:
-      console.log(action)
       return {
         ...state,
         [action.selectedKey]: {
