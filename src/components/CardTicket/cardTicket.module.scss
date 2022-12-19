@@ -1,3 +1,6 @@
+//import variables from '../'
+@import "src/assets/variables";
+
 .cardTicket {
   display: flex;
   flex-direction: column;
@@ -17,7 +20,7 @@
 
 .cardTicket__price {
   font-size: 24px;
-  color: #2196F3;
+  color: $color_1;
 }
 
 .cardTicket__fields {

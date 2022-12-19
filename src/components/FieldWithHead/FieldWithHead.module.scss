@@ -1,3 +1,5 @@
+@import "src/assets/variables";
+
 .fieldWithHead {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
   }
 
   &__field {
-    color: #4A4A4A;
+    color: $color_2;
     font-size: 14px;
     line-height: 21px;
   }
