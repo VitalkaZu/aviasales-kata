@@ -1,15 +1,11 @@
 import React from 'react'
 import styles from './Logo.module.scss'
-// import PropTypes from 'prop-types'
-//
-// Logo.propTypes = {
-//
-// }
+import logo from './Logo.png'
 
 function Logo() {
   return (
     <div className={styles.logo}>
-      <img src="Logo.png" alt="Logo" />
+      <img src={logo} alt="Logo" />
     </div>
   )
 }

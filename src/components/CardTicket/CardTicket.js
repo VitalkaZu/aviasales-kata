@@ -4,17 +4,11 @@ import { add, format } from 'date-fns'
 
 import styles from './cardTicket.module.scss'
 import FieldWithHead from '../FieldWithHead'
-// import { FilterReducer } from '../../redux/FilterRedux/redecer'
-// import './cardTicket.module.scss'
-// CardTicket.propTypes = {}
 
 function CardTicket({ ticket }) {
   const labels = useSelector((state) => Object.values(state.FilterReducer))
-  // console.log('to arr   >>>>  ', labels)
   const { price, carrier, segments } = ticket
   const [to, back] = segments
-  // console.log(to, back)
-  // console.log(price, carrier)
 
   const intervalToTime = (int) => {
     const hours = Math.floor(int / 60)
@@ -43,7 +37,6 @@ function CardTicket({ ticket }) {
       <FieldWithHead field={direction.stops.join(', ')} header={titleCountTransfer(direction.stops.length)} />
     </>
   )
-  // labels[count].label
 
   return (
     <div className={styles.cardTicket}>
@@ -58,16 +51,5 @@ function CardTicket({ ticket }) {
     </div>
   )
 }
-
-// // Код города (iata)
-// origin: string
-// // Код города (iata)
-// destination: string
-// // Дата и время вылета туда
-// date: string
-// // Массив кодов (iata) городов с пересадками
-// stops: string[]
-// // Общее время перелёта в минутах
-// duration: number
 
 export default CardTicket

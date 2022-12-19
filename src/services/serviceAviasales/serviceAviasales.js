@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default class ServiseAviasales {
   _baseUrl = 'https://aviasales-test-api.kata.academy'
 
@@ -14,8 +13,7 @@ export default class ServiseAviasales {
   getTickets = async (searchId) => {
     const res = await fetch(`${this._baseUrl}/tickets?searchId=${searchId}`)
     if (!res.ok) {
-      return
-      // throw new Error(`Error, status ${res.status}`)
+      return false
     }
     const body = await res.json()
     return body

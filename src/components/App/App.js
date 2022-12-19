@@ -1,36 +1,20 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadTickets, getSearchId } from '../../redux/TicketsRedux/TicketsActions'
-// import { useSelector } from 'react-redux'
+import { loadTickets, getSearchId } from '../../redux/actions/TicketsActions'
 import styles from './app.module.scss'
 import './global.scss'
-// import { AviaSalesService } from '../../services/serviceAviasales/serviceAviasales'
 
 import ListTicket from '../ListTicket'
-import SortTabs from '../SortTabs/SortTabs'
-import Filter from '../Filter/Filter'
-import ShowMore from '../ShowMore'
+import SortTabs from '../SortTabs'
+import Filter from '../Filter'
 import Spinner from '../UI/Spinner'
 import Logo from '../UI/Logo/Logo'
-// import tickets from '../../redux/reducer'
-// import PropTypes from 'prop-types'
-
-// App.propTypes = {}
 
 function App() {
   const dispatch = useDispatch()
   const { searchId, isLoading, isError } = useSelector((state) => state.TicketsReducer)
-  // const countSelectedFilters = useSelector(
-  //   (state) => Object.values(state.FilterReducer).filter((obj) => obj.checked).length
-  // )
 
   useEffect(() => {
-    // AviaSalesService.getSearchId().then((id) => {
-    //   AviaSalesService.getTickets(id).then((arrTickets) => {
-    //     console.log(arrTickets)
-    //   })
-    // })
-    // dispatch(loadTickets())
     dispatch(getSearchId())
   }, [])
 
@@ -44,6 +28,8 @@ function App() {
     <div className={styles.app}>
       <div className={styles.app__wrapper}>
         <Logo />
+      </div>
+      <div className={styles.app__wrapper}>
         <aside className={styles.app__left}>
           <Filter />
         </aside>
@@ -53,7 +39,6 @@ function App() {
           <Spinner isLoading={isLoading} />
           {/* {countSelectedFilters ? null : <span>Не выбраны фильтры</span>} */}
           <ListTicket />
-          <ShowMore />
         </main>
       </div>
     </div>

@@ -1,16 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectFilter } from '../../redux/FilterRedux/FilterActions'
+import { selectFilter } from '../../redux/actions/FilterActions'
 import styles from './Filter.module.scss'
-// import PropTypes from 'prop-types'
-//
-// Filter.propTypes = {
-//
-// }
 
 function Filter() {
   const dispatch = useDispatch()
-  // const selectedFilter = useSelector((state) => state.FilterReducer.selected)
   const objFilters = useSelector((state) => state.FilterReducer)
 
   const handleChange = (e) => {
@@ -20,8 +14,7 @@ function Filter() {
   return (
     <div className={styles.filter}>
       <span className={styles.filter__header}>Колчество пересадок</span>
-      {/* <span className={styles.filter__header}>{selectedFilter}</span> */}
-      <ul>
+      <ul className={styles.filter__list}>
         {Object.entries(objFilters).map(([key, value]) => (
           <li key={key} className={styles.filter__item}>
             <label htmlFor={key} className={styles.filter__label}>

@@ -1,9 +1,5 @@
 import React from 'react'
 import styles from './Tab.module.scss'
-// import PropTypes from 'prop-types'
-//
-// TabModuleScss.propTypes = {
-// }
 
 function Tab({ label, selected, onClick }) {
   return (

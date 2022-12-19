@@ -1,12 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { showMore } from '../../redux/TicketsRedux/TicketsActions'
+import { showMore } from '../../redux/actions/TicketsActions'
 import styles from './ShowMore.module.scss'
-// import PropTypes from 'prop-types'
-//
-// ShowMore.propTypes = {
-//
-// }
 
 function ShowMore() {
   const dispatch = useDispatch()

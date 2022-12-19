@@ -10,7 +10,6 @@ const initialState = {
 }
 
 export const TicketsReducer = (state = initialState, action) => {
-  console.log('TicketsReducer >>>>>  ', action)
   switch (action.type) {
     case LOAD_TICKETS:
       return { ...state, tickets: [...state.tickets, ...action.data.tickets], isStop: action.data.stop }
