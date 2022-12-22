@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './Tab.module.scss'
 
 function Tab({ label, selected, onClick }) {
@@ -9,6 +10,12 @@ function Tab({ label, selected, onClick }) {
       </button>
     </li>
   )
+}
+
+Tab.propTypes = {
+  label: PropTypes.string.isRequired,
+  selected: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default Tab

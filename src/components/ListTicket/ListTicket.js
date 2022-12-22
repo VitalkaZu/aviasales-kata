@@ -17,7 +17,7 @@ function ListTicket() {
     }, [])
   })
   const filtrArr = tickets.filter((el) => {
-    return filters.includes(Math.max(el.segments[0].stops.length, el.segments[1].stops.length))
+    return el.segments[0].stops.length === el.segments[1].stops.length && filters.includes(el.segments[0].stops.length)
   })
 
   const sortArr = sortBy(filtrArr, [
@@ -33,9 +33,8 @@ function ListTicket() {
         {arrToView.map((ticket, index) => (
           <CardTicket key={index} ticket={ticket} />
         ))}
-        {!arrToView.length && tickets ? <span>Рейсов, подходящих под заданные фильтры, не найдено</span> : null}
       </ul>
-      <ShowMore />
+      {arrToView.length ? <ShowMore /> : <span>Рейсов, подходящих под заданные фильтры, не найдено</span>}
     </>
   )
 }

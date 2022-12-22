@@ -2,9 +2,9 @@ import { CHANGE_TAB } from '../types'
 
 const initialState = {
   items: {
-    lowCash: { label: 'Самый дешевый', selected: true },
-    fast: { label: 'Самый быстрый', selected: false },
-    optimal: { label: 'Оптимальный', selected: false },
+    lowCash: 'Самый дешевый',
+    fast: 'Самый быстрый',
+    optimal: 'Оптимальный',
   },
   selectedKey: 'lowCash',
 }

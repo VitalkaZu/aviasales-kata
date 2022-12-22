@@ -15,12 +15,7 @@ function SortTabs() {
   return (
     <ul className={styles.sortTabs}>
       {arrTabs.map((item) => (
-        <Tab
-          key={item[0]}
-          label={item[1].label}
-          selected={selectedKey === item[0]}
-          onClick={() => handleClick(item[0])}
-        />
+        <Tab key={item[0]} label={item[1]} selected={selectedKey === item[0]} onClick={() => handleClick(item[0])} />
       ))}
     </ul>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { add, format } from 'date-fns'
+import PropTypes from 'prop-types'
 
 import styles from './cardTicket.module.scss'
 import FieldWithHead from '../FieldWithHead'
@@ -50,6 +51,14 @@ function CardTicket({ ticket }) {
       </div>
     </div>
   )
+}
+
+CardTicket.propTypes = {
+  ticket: PropTypes.shape({
+    price: PropTypes.number.isRequired,
+    carrier: PropTypes.string.isRequired,
+    segments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  }).isRequired,
 }
 
 export default CardTicket
